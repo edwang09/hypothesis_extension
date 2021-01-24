@@ -1,4 +1,4 @@
-SETTINGS_FILE := settings/safari-prod.json
+SETTINGS_FILE := settings/chrome-dev.json
 
 BROWSERIFY := node_modules/.bin/browserify
 ESLINT := node_modules/.bin/eslint

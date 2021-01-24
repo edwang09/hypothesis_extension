@@ -1,4 +1,5 @@
 build/
+safari-build/
 dist/
 node_modules/
 coverage/
