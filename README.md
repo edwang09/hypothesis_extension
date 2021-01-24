@@ -33,14 +33,6 @@ browser extension by running:
     yarn install
     make
 
-To build and test in Safari, make sure you have safari 14 and xcode 12 or above, and run the following instead:
-    
-    yarn install
-    make SETTINGS_FILE=settings/safari-dev.json
-    xcrun safari-web-extension-converter ./build --swift --force --project-location ./safari-build
-
-Once xcode is open, click the play button to test the extension.
-
 
 Once this is done you should be able to load the `build/` directory as an
 unpacked extension.
@@ -73,6 +65,17 @@ environment.
 See [Building the extension](docs/building.md) for more information.
 
 [client]: https://github.com/hypothesis/client/
+
+## Note for Safari
+
+To build and test in Safari, make sure you have safari 14 and xcode 12 or above, and run the following instead:
+    
+    yarn install
+    make SETTINGS_FILE=settings/safari-dev.json
+    xcrun safari-web-extension-converter ./build --swift --force --project-location ./safari-build
+
+Once xcode is open, click the play button to test the extension.
+
 
 ## Community
 
