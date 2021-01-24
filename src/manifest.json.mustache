@@ -62,7 +62,12 @@
     {{/browserIsChrome}}
     "scripts": [
       "settings-data.js",
+      {{#browserIsSafari}}
+      "extension.bundle.js.tmp.js"
+      {{/browserIsSafari}}
+      {{^browserIsSafari}}
       "extension.bundle.js"
+      {{/browserIsSafari}}
     ]
   },
   "browser_action": {

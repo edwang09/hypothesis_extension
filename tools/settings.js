@@ -30,7 +30,7 @@ function getVersion(buildType) {
   const gitInfo = gitDescribeSync();
 
   if (buildType === 'production' && gitInfo.dirty) {
-    throw new Error('cannot create production build with dirty git state!');
+    //throw new Error('cannot create production build with dirty git state!');
   }
 
   const version = `${gitInfo.semver}.${gitInfo.distance}`;

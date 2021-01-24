@@ -1,4 +1,4 @@
-function getLastError() {
+export function getLastError() {
   if (typeof chrome !== 'undefined' && chrome.extension) {
     return chrome.extension.lastError;
   } else {

@@ -1,4 +1,4 @@
-SETTINGS_FILE := settings/chrome-dev.json
+SETTINGS_FILE := settings/safari-prod.json
 
 BROWSERIFY := node_modules/.bin/browserify
 ESLINT := node_modules/.bin/eslint
@@ -39,8 +39,8 @@ extension: build/pdfjs-init.js
 extension: $(addprefix build/,$(EXTENSION_SRC))
 
 build/extension.bundle.js: src/background/index.js
-	$(BROWSERIFY) -t babelify -d $< > $@.tmp
-	cat $@.tmp | $(EXORCIST) $(addsuffix .map,$@) >$@
+	$(BROWSERIFY) -t babelify -d $< > $@.tmp.js
+	cat $@.tmp.js | $(EXORCIST) $(addsuffix .map,$@) >$@
 	@# When building the extension bundle, we also write out a list of
 	@# depended-upon files to .extension.bundle.deps, which we then include to
 	@# ensure that the bundle is rebuilt if any of these change. We ignore

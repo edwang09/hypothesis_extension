@@ -68,8 +68,29 @@ export default function SidebarInjector(
   chromeTabs,
   { isAllowedFileSchemeAccess, extensionURL }
 ) {
-  const executeScriptFn = util.promisify(chromeTabs.executeScript);
-
+  //const executeScriptFn = util.promisify(chromeTabs.executeScript);
+  const executeScriptFn = function (tab, content) {
+    console.log("not promise function")
+    console.log(content)
+    return new Promise((resolve, reject)=>{
+      chromeTabs.executeScript(
+        tab,
+        content,
+        function (result) {
+          console.log("injection complete!")
+          const lastError = util.getLastError();
+          if (lastError) {
+            console.log("last error!")
+            reject(lastError);
+          } else {
+            console.log("no error!")
+            resolve(result);
+          }
+        }
+    );
+    })
+    
+  }
   const PDFViewerBaseURL = extensionURL('/pdfjs/web/viewer.html');
 
   /**
