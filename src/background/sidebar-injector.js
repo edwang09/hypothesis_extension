@@ -68,6 +68,7 @@ export default function SidebarInjector(
   chromeTabs,
   { isAllowedFileSchemeAccess, extensionURL }
 ) {
+  //Rewriting the executeScriptFn without using apply function which does not work in Safari
   //const executeScriptFn = util.promisify(chromeTabs.executeScript);
   const executeScriptFn = function (tab, content) {
     console.log("not promise function")

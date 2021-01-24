@@ -62,6 +62,8 @@
     {{/browserIsChrome}}
     "scripts": [
       "settings-data.js",
+      {{! Exorcist does not work with Safari and Xcode, so skiping the step for Safari only
+  }}
       {{#browserIsSafari}}
       "extension.bundle.js.tmp.js"
       {{/browserIsSafari}}
